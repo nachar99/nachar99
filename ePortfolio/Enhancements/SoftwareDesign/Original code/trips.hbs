@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <h1>{{title}}</h1>
+    <ul>
+      {{#each trips}}
+        <li>
+          <strong>{{name}}</strong><br>
+          {{description}}<br>
+          Length: {{length}}<br>
+          Start: {{start}}<br>
+          Resort: {{resort}}<br>
+          Price per person: ${{perPerson}}<br>
+          <img src="{{image}}" alt="{{name}}" width="200">
+        </li>
+        <hr>
+      {{/each}}
+    </ul>
+  </body>
+</html>

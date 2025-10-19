@@ -1,0 +1,154 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="header">
+        <div>
+          <div class="brand">Travlr Getaways</div>
+          <div class="tagline">Find your next trip</div>
+        </div>
+      </div>
+
+      <div class="filters">
+        <form method="GET" action="/trips" class="filters__form">
+          <input type="hidden" name="page" value="{{#if meta}}{{meta.page}}{{else}}1{{/if}}" />
+          <div class="filters__row">
+            <input type="text" name="q" placeholder="Search by name" value="{{params.q}}" />
+            <input type="number" name="minPrice" placeholder="Min $" value="{{params.minPrice}}" />
+            <input type="number" name="maxPrice" placeholder="Max $" value="{{params.maxPrice}}" />
+            <input type="text" name="resort" placeholder="Resort" value="{{params.resort}}" />
+
+            <select name="sort">
+              <option value="name">Name</option>
+              <option value="perPerson">Price</option>
+              <option value="start">Start</option>
+              <option value="resort">Resort</option>
+            </select>
+
+            <select name="dir">
+              <option value="asc">Asc</option>
+              <option value="desc">Desc</option>
+            </select>
+
+            <select name="pageSize">
+              <option value="6">6</option>
+              <option value="12">12</option>
+              <option value="24">24</option>
+            </select>
+
+            <button type="submit">Apply</button>
+            <a class="btn" href="/trips">Clear</a>
+          </div>
+        </form>
+      </div>
+
+      {{#if message}}
+        <div class="alert">{{message}}</div>
+      {{/if}}
+
+      {{#if trips}}
+        <section class="grid">
+          {{#each trips}}
+            <article class="card">
+              <div class="media">
+                {{#if this.image}}
+                  <img src="{{this.image}}" alt="{{this.name}}" loading="lazy" />
+                {{else}}
+                  <img src="/img/placeholder.jpg" alt="Destination" loading="lazy" />
+                {{/if}}
+                {{#if this.perPerson}}
+                  <div class="badge">${{this.perPerson}}</div>
+                {{/if}}
+              </div>
+
+              <div class="body">
+                <h3 class="title">
+                  {{this.name}} {{#if this.code}}<span class="code">{{this.code}}</span>{{/if}}
+                </h3>
+
+                {{#if this.description}}<p class="desc">{{this.description}}</p>{{/if}}
+
+                <div class="meta">
+                  <div><strong>Length:</strong> {{this.length}} days</div>
+                  <div><strong>Resort:</strong> {{this.resort}}</div>
+                  <div><strong>Start:</strong> {{this.start}}</div>
+                  {{#if this.end}}<div><strong>End:</strong> {{this.end}}</div>{{/if}}
+                </div>
+              </div>
+
+              <div class="footer">
+                <span class="price">${{this.perPerson}}</span>
+                <a class="btn" href="/trips/{{this.code}}">View details</a>
+              </div>
+            </article>
+          {{/each}}
+        </section>
+      {{/if}}
+
+      {{#if meta}}
+        <div class="pager" data-page="{{meta.page}}" data-total="{{meta.totalPages}}">
+          <button type="button" class="btn prev">Prev</button>
+          <span>Page {{meta.page}} of {{meta.totalPages}}</span>
+          <button type="button" class="btn next">Next</button>
+        </div>
+      {{/if}}
+    </div>
+
+    <script>
+      (function () {
+        var form = document.querySelector('.filters__form');
+        var pageInput = form ? form.querySelector('input[name="page"]') : null;
+
+        var sortSel = document.querySelector('select[name="sort"]');
+        var dirSel = document.querySelector('select[name="dir"]');
+        var psSel = document.querySelector('select[name="pageSize"]');
+
+        if (sortSel) sortSel.value = "{{params.sort}}";
+        if (dirSel) dirSel.value = "{{params.dir}}";
+        if (psSel)  psSel.value  = "{{params.pageSize}}";
+
+        // Pager actions
+        var pager = document.querySelector('.pager');
+        var prevBtn = pager ? pager.querySelector('.prev') : null;
+        var nextBtn = pager ? pager.querySelector('.next') : null;
+
+        if (pager && prevBtn && nextBtn && pageInput && form) {
+          var page = Number(pager.dataset.page || 1);
+          var total = Number(pager.dataset.total || 1);
+          if (page <= 1) prevBtn.disabled = true;
+          if (page >= total) nextBtn.disabled = true;
+
+          prevBtn.addEventListener('click', function () {
+            var p = Math.max(1, Number(pageInput.value || '1') - 1);
+            pageInput.value = String(p);
+            form.submit();
+          });
+
+          nextBtn.addEventListener('click', function () {
+            var t = Number(pager.dataset.total || '1');
+            var p = Math.min(t, Number(pageInput.value || '1') + 1);
+            pageInput.value = String(p);
+            form.submit();
+          });
+        }
+
+        // Debounced search
+        var qInput = document.querySelector('input[name="q"]');
+        if (qInput && form && pageInput) {
+          var t = null;
+          qInput.addEventListener('input', function () {
+            clearTimeout(t);
+            t = setTimeout(function () {
+              pageInput.value = '1';
+              form.submit();
+            }, 450);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

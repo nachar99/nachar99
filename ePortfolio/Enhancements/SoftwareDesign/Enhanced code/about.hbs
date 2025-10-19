@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>About Travlr Getaways</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header__title">About Travlr Getaways</div>
+        <div class="header__sub">Who we are and how this app is built.</div>
+        <div class="header__actions">
+          <a class="btn btn-light" href="/">Home</a>
+          <a class="btn btn-primary" href="/trips">Browse Trips</a>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="about-grid">
+          <div class="about-grid__left">
+            <div class="card">
+              <div class="card__body">
+                <h3 class="card__title">Our Mission</h3>
+                <p class="card__text">Travlr Getaways keeps trip info simple and
+                  transparent. Clear pricing, real dates, and a clean interface
+                  so travelers can decide fast.</p>
+                <p class="card__text">This app is built with the MEAN stack:
+                  Angular for the admin front end, Express and Node for the API,
+                  and MongoDB for the database. The customer pages are
+                  server-rendered with Handlebars for fast first paint.</p>
+                <p class="card__text">Recent enhancements include
+                  environment-based configuration, security headers with Helmet,
+                  a global error handler, and a refreshed responsive design for
+                  an easier browsing experience.</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-grid__right">
+            <div class="card">
+              <div class="card__media card__media--ratio">
+                <img
+                  src="/travlr-getaways/public/images/logo2.png"
+                  alt="logo"
+                />
+              </div>
+              <div class="card__body">
+                <h3 class="card__title">Tech Snapshot</h3>
+                <ul class="list">
+                  <li>Node.js + Express API</li>
+                  <li>MongoDB with Mongoose</li>
+                  <li>Handlebars SSR for customer pages</li>
+                  <li>Angular admin (localhost:4200)</li>
+                  <li>Helmet, CORS, dotenv, global error handler</li>
+                </ul>
+                <a class="btn btn-primary" href="/trips">See trips</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

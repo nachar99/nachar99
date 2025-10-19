@@ -1,0 +1,240 @@
+:root {
+  --bg: #f6f0e8;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --primary: #006d77;
+  --primary-600: #0a7f88;
+  --accent: #e29578;
+  --card: #ffffff;
+  --ring: rgba(0, 0, 0, 0.06);
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Kumbh Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  max-width: 960px;
+  margin-inline: auto;
+  padding: 56px 20px 80px;
+}
+
+.section {
+  margin: 48px 0;
+}
+
+.h {
+  font-size: clamp(1.35rem, 1.1rem + 1.2vw, 2rem);
+  margin: 0 0 14px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+.h::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 44%;
+  height: 4px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.ribbon {
+  display: inline-block;
+  position: relative;
+  background: var(--primary);
+  padding: 18px 28px 14px;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  isolation: isolate;
+}
+.ribbon::before,
+.ribbon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  background: #07535a;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: -1;
+}
+.ribbon::before {
+  left: -9px;
+}
+.ribbon::after {
+  right: -9px;
+}
+
+.ribbon-text {
+  display: block;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  font-size: clamp(1.2rem, 0.9rem + 1.6vw, 2rem);
+}
+.ribbon-sub {
+  display: block;
+  opacity: 0.9;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.avatar {
+  width: min(220px, 60vw);
+  margin: 22px auto 14px;
+  border-radius: 50%;
+  padding: 6px;
+  background: conic-gradient(from 120deg, var(--accent), var(--primary));
+  box-shadow: var(--shadow);
+}
+.avatar img {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.title {
+  font-size: clamp(1.4rem, 1rem + 2.2vw, 2.2rem);
+  margin: 10px 0 4px;
+  font-weight: 700;
+}
+.subtitle {
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 6px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--ring);
+  margin: 22px 0;
+}
+.card-media img {
+  width: 100%;
+  height: clamp(200px, 28vw, 360px);
+  object-fit: cover;
+}
+.card-body {
+  padding: 18px 20px 22px;
+}
+.card-body h3 {
+  margin: 0 0 6px;
+  font-size: clamp(1.05rem, 0.9rem + 0.9vw, 1.4rem);
+}
+.card-body p {
+  margin: 0 0 12px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 2px;
+}
+.chip {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary) 15%, #fff);
+  color: var(--primary);
+  border: 1px solid color-mix(in oklab, var(--primary) 25%, #fff);
+}
+
+.details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--primary-600);
+  margin: 6px 0 10px;
+}
+.ba {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.ba figure {
+  margin: 0;
+}
+.ba figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.outcomes {
+  margin: 8px 0 0;
+  padding: 0 0 0 1.05rem;
+}
+.outcomes li {
+  margin: 0.35rem 0;
+}
+.outcomes strong {
+  color: var(--primary);
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 42px;
+  font-size: 0.95rem;
+}
+
+.corner-ribbon {
+  position: fixed;
+  top: 18px;
+  left: -44px;
+  transform: rotate(-45deg);
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 64px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  box-shadow: var(--shadow);
+  border-radius: 6px;
+}
+
+@media (max-width: 820px) {
+  .wrap {
+    padding-top: 40px;
+  }
+  .ba {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 420px) {
+  .corner-ribbon {
+    display: none;
+  }
+}
