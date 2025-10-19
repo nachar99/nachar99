@@ -1,6 +1,5 @@
----
-
 ## Technologies Used
+
 - **Node.js / Express.js** – backend server & REST API  
 - **MongoDB / Mongoose** – NoSQL database & ODM  
 - **Handlebars (HBS)** – server-side rendered pages  
@@ -9,9 +8,11 @@
 - **bcrypt.js** – password hashing  
 - **jsonwebtoken (JWT)** – authentication tokens  
 - **Express-rate-limit** – API rate limiting  
-- **HTML, CSS, * – frontend layout & styling  
+- **HTML, CSS, and JavaScript** – frontend layout & styling  
 
 ---
+
+
 
 ## Enhancement 1 – Software Design and Engineering
 
