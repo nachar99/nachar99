@@ -1,5 +1,3 @@
-## Hi there 👋
-
 <!--
 # Hey, I'm Abdulrahman Al-Nachar 👋
 
