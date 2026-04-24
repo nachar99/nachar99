@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Personal portfolio for Abdulrahman featuring GitHub projects, screenshots, tech stacks, and project details."
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./assets/screenshots/personal/favicon.svg"
+    />
+
+    <title>Abdulrahman | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top">
+          <span class="brand-mark">
+            <img
+              src="./assets/screenshots/personal/1772900621324.jpg"
+              alt="Personal picture"
+            />
+          </span>
+          <span class="brand-copy">
+            <strong>Abdulrahman</strong>
+            <span>Portfolio</span>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Full-stack developer portfolio</p>
+            <h1 id="hero-name">Abdulrahman Al Nachar</h1>
+            <p class="hero-summary" id="hero-summary"></p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="#projects">View Projects</a>
+              <a
+                class="button secondary"
+                id="github-link"
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                >GitHub</a
+              >
+            </div>
+
+            <dl class="hero-stats">
+              <div>
+                <dt>Projects</dt>
+                <dd id="project-count" data-count="20+">20+</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd id="hero-focus">Full Stack Engineering</dd>
+              </div>
+              <div>
+                <dt>Based In</dt>
+                <dd id="hero-location">Chicago, IL</dd>
+              </div>
+            </dl>
+          </div>
+
+          <aside class="hero-panel">
+            <p class="panel-label">What I bring to projects</p>
+            <ul class="feature-list">
+              <li>Clean full-stack builds with strong backend structure</li>
+              <li>Responsive interfaces that stay modern and easy to use</li>
+              <li>Authentication, APIs, and database work for real apps</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section about-section" id="about">
+          <div class="section-heading">
+            <div>
+              <h2>About Me</h2>
+            </div>
+          </div>
+
+          <div class="about-layout">
+            <article class="about-card about-story">
+              <p class="about-body" id="about-body"></p>
+              <div class="about-skills" id="about-skills"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="projects">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Featured Work</p>
+              <h2>Project gallery</h2>
+            </div>
+            <div
+              class="carousel-controls"
+              aria-label="Featured project controls"
+            >
+              <button
+                class="icon-button"
+                id="featured-prev"
+                type="button"
+                aria-label="Previous project"
+              >
+                &#8592;
+              </button>
+              <button
+                class="icon-button"
+                id="featured-next"
+                type="button"
+                aria-label="Next project"
+              >
+                &#8594;
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="featured-carousel"
+            id="featured-carousel"
+            aria-live="polite"
+          ></div>
+          <div
+            class="carousel-dots"
+            id="featured-dots"
+            aria-label="Featured project navigation"
+          ></div>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="contact">
+        <div>
+          <p class="eyebrow">Let’s Build</p>
+          <h2>Contact Me</h2>
+        </div>
+
+        <div class="footer-links">
+          <a id="contact-email" href="#">Email</a>
+          <a id="contact-linkedin" href="#" target="_blank" rel="noreferrer"
+            >LinkedIn</a
+          >
+          <a id="contact-github" href="#" target="_blank" rel="noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </footer>
+    </div>
+
+    <dialog class="project-modal" id="project-modal">
+      <button
+        class="modal-close"
+        id="modal-close"
+        type="button"
+        aria-label="Close project details"
+      >
+        &#10005;
+      </button>
+
+      <div class="modal-layout">
+        <div class="modal-content" id="modal-content"></div>
+      </div>
+    </dialog>
+
+    <script src="./data.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
